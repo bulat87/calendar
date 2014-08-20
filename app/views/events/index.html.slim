@@ -15,7 +15,7 @@ table
         td= event.title
         td= event.date
         td= event.recurrence
-        td= event.user
+        td= event.user.name
         td= link_to 'Show', event
         td= link_to 'Edit', edit_event_path(event)
         td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
