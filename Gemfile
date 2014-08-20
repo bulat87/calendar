@@ -39,4 +39,6 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
-gem 'cancan'	
+gem 'cancan'
+gem 'bootstrap-sass'
+gem 'slim'
