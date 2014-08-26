@@ -11,5 +11,5 @@ h1 My events
         - @events.each do |event|
           tr
           td= event.id
-          td= event.title
+          td= link_to event.title, event
           td= event.event_start 
