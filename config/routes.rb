@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :events
 
+  get 'my_events', to: 'events#my_events'
+  get 'all_events', to: 'events#all_events'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
