@@ -1,0 +1,26 @@
+= form_for(@event) do |f|
+  - if @event.errors.any?
+    #error_explanation
+      h2= pluralize(@event.errors.count, "error")
+
+      ul
+      - @event.errors.full_messages.each do |message|
+        li= message
+  .field
+    = f.label :title
+    = f.text_field :title
+
+  .field
+    = f.label :event_start
+    = f.text_field :event_start
+    
+  .field
+    = f.label :event_end
+    = f.text_field :event_end 
+  
+  .field
+    = f.label :recurrence
+    = f.select :recurrence, [['None', nil], ['Each day'],['Each week'],['Each month'], ['Each year']]
+  
+  .actions
+    = f.submit

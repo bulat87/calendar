@@ -10,7 +10,7 @@ h1 Event calendar
     = date.day
     - if @events_by_date[date]
       ul
-        - @events_by_date[date].each do |event|
-          li= link_to event.title, event
+        - @events_by_date[date].each do |repeat, event|
+          li= link_to repeat.event.title, edit_event_path(repeat.event.id)
 
 = link_to 'New Event', new_event_path, class: 'btn btn-default'
