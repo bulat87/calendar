@@ -1,31 +1,32 @@
 class Event < ActiveRecord::Base
   belongs_to :user
-  has_many :repeat, dependent: :destroy
 
   validates :event_start, :event_end, :recurrence, :title, presence: true
 
-  after_save :set_date
-
-  def set_date
-    date = self.event_start
-    duration = self.event_start..self.event_end
-
-    while duration.include?(date)
-      self.repeat.create(date: date)
-      date = next_date(date)
-    end
-  end
-
   def next_date(date)
     case recurrence
-    when 'Each day' || ""
+    when 'Each day' || ''
       date.next_day
     when 'Each week'
-      date.advance(days:7)
+      date + 7.days
     when 'Each month'
       date.next_month
     when 'Each year'
       date.next_year
     end
+  end
+
+  def accepted_dates
+    current_date = event_start.clone
+    dates = []
+    until current_date > event_end
+      dates << current_date if current_date <= event_end
+      current_date = next_date(current_date)
+    end
+    dates
+  end
+
+  def occurs_at?(date)
+    accepted_dates.include?(date)
   end
 end
