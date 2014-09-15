@@ -1,28 +1,10 @@
-== README
+This is event calendar developed as test app for Flatstack.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Used:
+Ruby version 2.1.2
+Rails 4.1.1
 
-Things you may want to cover:
+To use it clone from github, set your setting to database.yml and run rake db:migrate.
 
-* Ruby version
+You can try this application by clicking on the link: http://fs-events.herokuapp.com/
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

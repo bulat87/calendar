@@ -44,3 +44,9 @@ gem 'bootstrap-sass'
 gem 'slim'
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'rails_12factor', group: :production
+
+group :test do
+	gem 'rspec-rails'
+	gem 'factory_girl'
+	gem 'sqlite3'
+end
