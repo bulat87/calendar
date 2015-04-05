@@ -49,4 +49,5 @@ group :test do
 	gem 'rspec-rails'
 	gem 'factory_girl'
 	gem 'sqlite3'
+	gem 'faker'
 end
