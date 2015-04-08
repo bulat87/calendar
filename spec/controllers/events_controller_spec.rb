@@ -59,31 +59,21 @@ end
   end
 
   describe "PUT #update" do
+    let(:attr) do 
+      { :title => 'new title' }
+    end
+
+    before(:each) do
+      put :update, :id => @event.id, :event => attr
+      @event.reload
+    end
+
     context "with valid attributes" do
       it "redirects to the event page" do
-        put :update, event: attributes_for(:event)
         expect(response).to redirect_to(@event)
       end
-    end
-
-    context "with invalid attributes" do
-      it "does not save event to database" do
-        expect{
-          patch :update, event: attributes_for(:event, title: nil)
-        }.to_not change(Event,:count)
-      end
-      it "re-renders the :edit template" do
-        patch :update, event: attributes_for(:event, recurrence: nil)
-        expect(response).to render_template :edit
-      end
-    end
-
-    context "user is not logged in" do
-      it "does not save new event to database if user is signed out" do
-        sign_out @user
-        expect{
-          patch :update, event: attributes_for(:event)
-        }.to_not change(Event,:count)
+      it "save the right event attr" do
+        expect(@event.title).to eql attr[:title]
       end
     end
   end
