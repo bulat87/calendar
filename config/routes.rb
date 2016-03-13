@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :events do
+    resources :comments, :only => [:create, :destroy]
+  end
 
   get 'my_events', to: 'events#my_events'
   get 'all_events', to: 'events#all_events'

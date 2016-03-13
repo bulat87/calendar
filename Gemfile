@@ -50,4 +50,5 @@ group :test do
 	gem 'factory_girl'
 	gem 'sqlite3'
 	gem 'faker'
+	gem "capybara"
 end

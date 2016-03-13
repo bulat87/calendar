@@ -12,7 +12,7 @@ h1 Event calendar
     - selected_events = find_events_at(date)
     ul
       - selected_events.each do |event|
-        li= link_to event.title, edit_event_path(event.id)
+        li= link_to event.title, event_path(event.id)
 
 - if user_signed_in?
   = link_to 'New Event', new_event_path, class: 'btn btn-default'

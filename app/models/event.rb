@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
   belongs_to :user
+  has_many :comments, :dependent => :destroy
 
-  validates :event_start, :event_end, :recurrence, :title, presence: true
+  validates :user_id, :event_start, :event_end, :recurrence, :title, presence: true
 
   def next_date(date)
     case recurrence

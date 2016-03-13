@@ -8,3 +8,8 @@ p
 p
   strong User:
   = @event.user.name
+
+h3 Event comments
+= render 'comments/show'
+- if user_signed_in?
+  = render 'comments/form'

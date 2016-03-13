@@ -1,10 +1,8 @@
 development:
-  adapter: postgresql
-  encoding: utf8
-  database: calendar
-  username: postgres
-  password: 000000
-  host: localhost
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  database: db/development.sqlite3
 
 production:
   adapter: postgresql
